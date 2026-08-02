@@ -1,6 +1,6 @@
 # Docker Nginx Flask Redis
 
-A beginner-friendly Docker Compose project demonstrating how multiple containers communicate with each other.
+A beginner-friendly Docker Compose project demonstrating how multiple containers communicate with each other using a reverse proxy and custom Docker images.
 
 ## Technologies
 
@@ -12,7 +12,7 @@ A beginner-friendly Docker Compose project demonstrating how multiple containers
 
 ## Architecture
 
-```
+```text
 Browser
     │
     ▼
@@ -27,18 +27,19 @@ Browser
 
 ## Project Structure
 
-```
+```text
 docker-nginx-flask-redis/
 │
-├── docker-compose.yml
+├── compose.yaml
 │
 ├── flask/
-│   ├── app.py
 │   ├── Dockerfile
+│   ├── app.py
 │   └── requirements.txt
 │
 ├── nginx/
-│   └── default.conf
+│   ├── Dockerfile
+│   └── nginx.conf
 │
 └── redis/
     ├── Dockerfile
@@ -47,29 +48,31 @@ docker-nginx-flask-redis/
 
 ## Features
 
-- Docker Compose
-- Reverse Proxy with Nginx
-- Flask Web Application
-- Redis Integration
-- Persistent Redis Volume
+- Docker Compose orchestration
+- Custom Docker images
+- Nginx reverse proxy
+- Flask web application
+- Redis integration
+- Persistent Redis volume
+- Container networking
 
 ## Getting Started
 
-Clone the repository
+Clone the repository:
 
 ```bash
 git clone https://github.com/YOUR_USERNAME/docker-nginx-flask-redis.git
 ```
 
-Start the application
+Build and start the containers:
 
 ```bash
 docker compose up --build
 ```
 
-Open your browser
+Open your browser:
 
-```
+```text
 http://localhost:7081
 ```
 
@@ -82,29 +85,32 @@ http://localhost:7081
 | /visits/reset | Reset visitor counter |
 | /health | Health endpoint |
 
-## How it works
+## How It Works
 
-1. The browser sends a request to Nginx.
-2. Nginx forwards the request to the Flask container.
+1. The browser sends a request to the Nginx container.
+2. Nginx acts as a reverse proxy and forwards the request to the Flask application.
 3. Flask processes the request.
-4. Flask stores and retrieves data from Redis.
-5. Flask sends the response back through Nginx to the browser.
+4. Redis stores the visitor counter.
+5. Flask returns the response through Nginx back to the browser.
 
 ## Learning Goals
 
-This project was created to learn:
+This project was built to practice:
 
-- Docker Images
+- Building custom Docker images
 - Docker Compose
-- Volumes
-- Container Networking
-- Reverse Proxy
-- Redis Basics
+- Container networking
+- Docker volumes
+- Reverse proxies with Nginx
+- Redis basics
+- Multi-container applications
 
 ## Future Improvements
 
-- Load Balancing
-- Health Checks
-- Custom Error Pages
-- HTTPS
-- Kubernetes Deployment
+- Load balancing with multiple Flask containers
+- Health checks
+- Custom Nginx error pages
+- HTTPS with TLS certificates
+- Docker Compose profiles
+- CI/CD with GitHub Actions
+- Kubernetes deployment
