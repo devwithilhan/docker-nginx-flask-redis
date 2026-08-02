@@ -7,7 +7,7 @@ services:
       - "5000"
 
   nginx:
-    image: ./nginx
+    build: ./nginx
     ports:
       - "7081:80"
     depends_on:

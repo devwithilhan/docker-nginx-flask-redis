@@ -16,13 +16,14 @@ A beginner-friendly Docker Compose project demonstrating how multiple containers
 Browser
     │
     ▼
- Nginx (Reverse Proxy)
+Nginx (Reverse Proxy + Load Balancer)
     │
-    ▼
- Flask Application
-    │
-    ▼
- Redis
+    ├────────► Flask 1
+    ├────────► Flask 2
+    └────────► Flask 3
+                  │
+                  ▼
+                Redis
 ```
 
 ## Project Structure
@@ -51,6 +52,7 @@ docker-nginx-flask-redis/
 - Docker Compose orchestration
 - Custom Docker images
 - Nginx reverse proxy
+- Nginx load balancing
 - Flask web application
 - Redis integration
 - Persistent Redis volume
@@ -107,7 +109,6 @@ This project was built to practice:
 
 ## Future Improvements
 
-- Load balancing with multiple Flask containers
 - Health checks
 - Custom Nginx error pages
 - HTTPS with TLS certificates
