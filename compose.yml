@@ -3,8 +3,8 @@ services:
     build: ./flask
     volumes:
       - ./flask:/usr/src/app
-    ports:
-      - "5000:5000"
+    expose:
+      - "5000"
 
   nginx:
     image: ./nginx
