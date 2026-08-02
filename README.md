@@ -1,2 +1,9 @@
-# docker-nginx-flask-redis
-A beginner-friendly Docker Compose project demonstrating Nginx as a reverse proxy, a Flask application and Redis.
+# Docker Nginx Flask Redis
+
+A beginner-friendly Docker Compose project demonstrating:
+
+- Docker Compose
+- Nginx Reverse Proxy
+- Flask
+- Redis
+- Container Networking
